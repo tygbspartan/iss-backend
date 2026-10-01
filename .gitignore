@@ -1,0 +1,12 @@
+/node_modules
+
+/dist
+
+/src/generated/prisma
+
+/uploads
+
+.env
+.env.local
+
+npm-debug.log*
