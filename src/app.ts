@@ -1,6 +1,8 @@
 import express, { Application } from "express";
+import path from "path";
 import cors from "cors";
 import helmet from "helmet";
+import { PUBLIC_UPLOADS_PREFIX } from "./services/storage.service";
 import { requestLogger } from "./middleware/logger.middleware";
 import {
   errorHandler,
@@ -28,6 +30,21 @@ app.use(
 app.use(express.json({ limit: "500kb" }));
 app.use(express.urlencoded({ extended: true, limit: "500kb" }));
 app.use(requestLogger);
+
+// Serve locally-stored uploads in production (the local-disk storage driver on
+// cPanel/VPS). The CORP header is required: helmet's default same-origin CORP
+// makes the browser block these images on the separate-origin frontend. Scoped
+// to /uploads so API responses keep the stricter default.
+if (config.isProduction) {
+  app.use(
+    PUBLIC_UPLOADS_PREFIX,
+    (_req, res, next) => {
+      res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+      next();
+    },
+    express.static(path.resolve(config.uploadDir), { index: false, dotfiles: "deny" })
+  );
+}
 
 // API routes
 app.use("/api", apiRoutes);

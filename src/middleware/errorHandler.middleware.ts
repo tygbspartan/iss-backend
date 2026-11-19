@@ -54,6 +54,12 @@ export const errorHandler = (
 ): void => {
   const isProd = process.env.NODE_ENV === "production";
 
+  // Multer upload errors (file too large, too many files, wrong field) are
+  // client mistakes, not server faults.
+  if (err.name === "MulterError") {
+    err.statusCode = 400;
+  }
+
   // Prefer an explicit statusCode from a thrown custom error; otherwise try to
   // interpret Prisma errors; otherwise fall back to 500.
   const prisma = err.statusCode ? null : mapPrismaError(err);
@@ -84,6 +90,8 @@ export const errorHandler = (
   res.status(statusCode).json({
     status: "error",
     message,
+    // Field-level errors (e.g. validation) are meant for the client — always send them.
+    ...(err.errors && statusCode < 500 && { errors: err.errors }),
     ...(!isProd && {
       stack: err.stack,
       errors: err.errors,

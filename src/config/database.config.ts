@@ -1,6 +1,18 @@
 import { PrismaClient } from "@prisma/client";
+import { config } from "./env.config";
 
-const prisma = new PrismaClient();
+// By default Prisma's query engine starts one thread per CPU core and opens
+// (cores × 2 + 1) database connections. On a shared host with dozens of cores
+// that's dozens of threads (each counted against cPanel's process limit) and
+// far more connections than this site needs. Cap both unless set already.
+process.env.TOKIO_WORKER_THREADS ??= "2";
+
+const withConnectionLimit = (url: string | undefined): string | undefined => {
+  if (!url || /[?&]connection_limit=/.test(url)) return url;
+  return `${url}${url.includes("?") ? "&" : "?"}connection_limit=5`;
+};
+
+const prisma = new PrismaClient({ datasourceUrl: withConnectionLimit(config.databaseUrl) });
 
 export const testDatabaseConnection = async (): Promise<boolean> => {
   try {

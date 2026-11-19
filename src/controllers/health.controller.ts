@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import prisma from "../config/database.config";
+import { config } from "../config/env.config";
+import { isRedisReady } from "../config/redis.config";
 
 /**
  * Liveness + DB readiness. Returns 503 when the database is unreachable so
@@ -21,6 +23,8 @@ export const getHealth = async (_req: Request, res: Response): Promise<void> => 
     status: statusCode === 200 ? "success" : "error",
     message: "API is running",
     database,
+    // Redis is optional, so its state is reported but never fails the check.
+    cache: !config.redisUrl ? "disabled" : isRedisReady() ? "connected" : "unavailable",
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });

@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id           Int    @id @default(autoincrement())
+  id           String @id @default(uuid()) @db.Uuid
   username     String @unique
   passwordHash String @map("password_hash")
 
@@ -18,4 +18,200 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("users")
+}
+
+model Service {
+  id          String @id @default(uuid()) @db.Uuid
+  title       String
+  slug        String @unique
+  description String
+  image       String // public URL from the storage driver (required)
+  features    String[] @default([]) // what the service includes, in display order (its page's bullet list)
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isActive  Boolean @default(true) @map("is_active")
+
+  // Implicit many-to-many — Prisma manages the "_ProjectToService" join table.
+  projects Project[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, sortOrder])
+  @@map("services")
+}
+
+model Project {
+  id          String   @id @default(uuid()) @db.Uuid
+  title       String
+  slug        String   @unique
+  description String
+  image       String // main/cover image (required)
+  thumbnails  String[] @default([]) // gallery image URLs, in display order
+
+  isActive Boolean @default(true) @map("is_active")
+
+  services Service[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, createdAt])
+  @@map("projects")
+}
+
+model TeamMember {
+  id          String  @id @default(uuid()) @db.Uuid
+  name        String
+  email       String
+  link        String? // e.g. LinkedIn / portfolio URL — the only optional field
+  jobTitle    String  @map("job_title")
+  // Two photos: the cartoon is shown by default; the actual photo replaces it
+  // on hover. Both are required for new members. actualImage is nullable only
+  // because members created before it existed don't have one yet.
+  image       String // cartoon image
+  actualImage String? @map("actual_image") // real photo, shown on hover
+
+  // Chosen from the departments list. A department can't be deleted while it
+  // still has members.
+  departmentId String     @map("department_id") @db.Uuid
+  department   Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isActive  Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, sortOrder])
+  @@index([departmentId])
+  @@map("team_members")
+}
+
+// Groups team members on the Teams page, in sortOrder. Members of a department
+// marked isCore are the "core people" shown on the About page.
+model Department {
+  id        String  @id @default(uuid()) @db.Uuid
+  name      String  @unique
+  sortOrder Int     @default(0) @map("sort_order")
+  isCore    Boolean @default(false) @map("is_core")
+
+  members TeamMember[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("departments")
+}
+
+model Blog {
+  id          String @id @default(uuid()) @db.Uuid
+  title       String
+  slug        String @unique
+  description String // short excerpt shown on listing cards
+  content     String // full post body (Markdown)
+  image       String // cover image (required)
+  author      String @default("ISS Nepal")
+  readTime    Int    @default(5) @map("read_time") // estimated minutes to read
+
+  // Visibility for blogs is controlled by publishing rather than isActive.
+  isPublished Boolean   @default(false) @map("is_published")
+  publishedAt DateTime? @map("published_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isPublished, publishedAt])
+  @@map("blogs")
+}
+
+model Testimonial {
+  id          String @id @default(uuid()) @db.Uuid
+  clientName  String @map("client_name")
+  companyName String @map("company_name")
+  testimony   String
+  image       String // client photo (required)
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isActive  Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, sortOrder])
+  @@map("testimonials")
+}
+
+model Client {
+  id          String @id @default(uuid()) @db.Uuid
+  companyName String @map("company_name")
+  image       String // company logo (required)
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isActive  Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, sortOrder])
+  @@map("clients")
+}
+
+// Submissions from the public "Contact Us" form. Create-only from the website,
+// read-only in the admin panel.
+model ContactInquiry {
+  id      String @id @default(uuid()) @db.Uuid
+  name    String
+  company String // company / organization ("" on inquiries from before it was asked)
+  email   String
+  phone   String
+
+  // "Type of Event", as typed by the visitor (e.g. "Corporate event").
+  eventType String @map("event_type")
+
+  // Date only. Required on the form; null on inquiries from before it was asked.
+  eventDate    DateTime? @map("event_date") @db.Date
+  requirements String // "Tell us about your requirements"
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@map("contact_inquiries")
+}
+
+// The access token for the website's Instagram feed. A single row (id 1): the
+// token is copied here from INSTAGRAM_ACCESS_TOKEN once, then renewed in place
+// by the server before its 60 days run out (see instagram.service.ts).
+model InstagramToken {
+  id          Int    @id @default(1)
+  accessToken String @map("access_token")
+  // SHA-256 of the INSTAGRAM_ACCESS_TOKEN this row was started from, so a
+  // different token pasted into .env later is noticed and replaces this one.
+  seedHash    String @map("seed_hash")
+
+  expiresAt   DateTime  @map("expires_at")
+  refreshedAt DateTime  @map("refreshed_at") // last successful renewal (or when it was first stored)
+  lastError   String?   @map("last_error") // most recent failure reported by Instagram, cleared on success
+  lastAlertAt DateTime? @map("last_alert_at") // when the team was last emailed about a failing renewal
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("instagram_token")
+}
+
+// A major upcoming event. isActive turns off automatically once eventDate has
+// passed (see upcomingEvent.controller.ts); admins can also hide one early.
+model UpcomingEvent {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  eventDate DateTime @map("event_date") @db.Date // calendar date only, no time
+  image     String
+  isActive  Boolean  @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, eventDate])
+  @@map("upcoming_events")
 }

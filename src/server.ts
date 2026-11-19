@@ -5,6 +5,11 @@ import {
   disconnectDatabase,
 } from "./config/database.config";
 import { SeedService } from "./services/seed.service";
+import { getRedisClient, disconnectRedis } from "./config/redis.config";
+import { EmailService } from "./services/email.service";
+import { deactivateExpiredEvents } from "./controllers/upcomingEvent.controller";
+import { CacheService } from "./services/cache.service";
+import { InstagramService } from "./services/instagram.service";
 
 // Validate environment variables on startup
 try {
@@ -13,6 +18,8 @@ try {
   console.error("❌ Environment validation failed:", error);
   process.exit(1);
 }
+
+const INSTAGRAM_UPKEEP_INTERVAL_MS = 12 * 60 * 60 * 1000;
 
 const startServer = async (): Promise<void> => {
   try {
@@ -23,8 +30,29 @@ const startServer = async (): Promise<void> => {
       process.exit(1);
     }
 
+    // Connect to Redis in the background (optional — skipped if REDIS_URL unset).
+    // Once connected, drop whatever the previous run cached: after a deploy the
+    // new code may shape responses differently than the cached ones.
+    getRedisClient()?.once("ready", () => void CacheService.clearAll());
+
+    // Check the SMTP login in the background so a typo shows up at startup
+    // rather than on the first inquiry.
+    void EmailService.verify();
+
+    // Turn off upcoming events whose date has passed: now, then every hour.
+    const expireEvents = () =>
+      deactivateExpiredEvents().catch((e) => console.error("❌ Expiring events failed:", e.message));
+    void expireEvents();
+    setInterval(expireEvents, 60 * 60 * 1000).unref();
+
     // Create the default admin account if it isn't there yet
     await SeedService.runSeed();
+
+    // Keep the Instagram access token alive: check now, then twice a day,
+    // renewing it when it's due. (Requests for the feed run the same check,
+    // so it still happens on hosts that put an idle server to sleep.)
+    void InstagramService.runUpkeep();
+    setInterval(() => void InstagramService.runUpkeep(), INSTAGRAM_UPKEEP_INTERVAL_MS).unref();
 
     app.listen(config.port, () => {
       console.log("=================================");
@@ -44,7 +72,7 @@ startServer();
 // Handle shutdown gracefully
 const shutdown = async (signal: string): Promise<void> => {
   console.log(`\n🛑 ${signal} received — shutting down gracefully...`);
-  await disconnectDatabase();
+  await Promise.all([disconnectDatabase(), disconnectRedis()]);
   process.exit(0);
 };
 
