@@ -19,8 +19,9 @@ import { createProjectSchema, updateProjectSchema } from "../validators/content.
 
 const router = Router();
 router.param("id", validateUuidParam);
-// Service pages embed their projects (and vice versa), so writes clear both.
-router.use(invalidateCacheOnWrite("projects", "services"));
+// Service pages embed their projects (and vice versa), and event types count
+// their projects, so writes clear all three.
+router.use(invalidateCacheOnWrite("projects", "services", "event-types"));
 
 // Public
 router.get("/", cacheResponse("projects", TTL.LIST), listProjects);

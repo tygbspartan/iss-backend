@@ -1,0 +1,404 @@
+[
+  {
+    "department": "Founders",
+    "isCore": true,
+    "members": [
+      {
+        "name": "Suresh Ratna Shakya",
+        "jobTitle": "Chairman",
+        "photo": "suresh-ratna-shakya.jpg"
+      },
+      {
+        "name": "Shibir Ratna Shakya",
+        "jobTitle": "Managing Director & Sound Engineer",
+        "photo": "shibir-ratna-shakya.jpg"
+      },
+      {
+        "name": "Samir Ratna Shakya",
+        "jobTitle": "Managing Director",
+        "photo": "samir-ratna-shakya.jpg"
+      }
+    ]
+  },
+  {
+    "department": "Management & Administration",
+    "isCore": false,
+    "members": [
+      {
+        "name": "Melina Shakya",
+        "jobTitle": "Administrative Head",
+        "photo": "melina-shakya.jpg"
+      },
+      {
+        "name": "Tika Ram Dhakla",
+        "jobTitle": "Finance Head",
+        "photo": null
+      },
+      {
+        "name": "Funji Dolmo Gongba",
+        "jobTitle": "Sales & Marketing Manager",
+        "photo": "funji-dolmo-gongba.jpg"
+      },
+      {
+        "name": "Mahesh Kumar Karki",
+        "jobTitle": "Event Coordinator",
+        "photo": "mahesh-kumar-karki.jpg"
+      },
+      {
+        "name": "Nayana Shakya",
+        "jobTitle": "Account Assistant",
+        "photo": "nayana-shakya.jpg"
+      }
+    ]
+  },
+  {
+    "department": "Audio",
+    "isCore": false,
+    "members": [
+      {
+        "name": "Bharat Dangol",
+        "jobTitle": "Audio Engineer",
+        "photo": "bharat-dangol.jpg"
+      },
+      {
+        "name": "Ganga Raj Baskota",
+        "jobTitle": "Audio Engineer",
+        "photo": "ganga-raj-baskota.jpg"
+      },
+      {
+        "name": "Pujan Bhujel",
+        "jobTitle": "Audio Engineer",
+        "photo": "pujan-bhujel.jpg"
+      },
+      {
+        "name": "Sovin Shakya",
+        "jobTitle": "Audio Engineer",
+        "photo": "sovin-shakya.jpg"
+      },
+      {
+        "name": "Bal Kumar Sharma",
+        "jobTitle": "Audio Supervisor",
+        "photo": "bal-kumar-sharma.jpg"
+      },
+      {
+        "name": "Lila Raj Bastola",
+        "jobTitle": "Audio Supervisor",
+        "photo": "lila-raj-bastola.jpg"
+      },
+      {
+        "name": "Nischal Bhandari",
+        "jobTitle": "Audio Supervisor",
+        "photo": "nischal-bhandari.jpg"
+      },
+      {
+        "name": "Rukesh Shakya",
+        "jobTitle": "Audio Supervisor",
+        "photo": "rukesh-shakya.jpg"
+      },
+      {
+        "name": "Saroj Maharjan",
+        "jobTitle": "Audio Supervisor",
+        "photo": null
+      },
+      {
+        "name": "Anish Shahi",
+        "jobTitle": "Audio Crew",
+        "photo": null
+      },
+      {
+        "name": "Bam Bahadur Khati",
+        "jobTitle": "Audio Crew",
+        "photo": "bam-bahadur-khati.jpg"
+      },
+      {
+        "name": "Herendra Man Shakya",
+        "jobTitle": "Audio Crew",
+        "photo": null
+      },
+      {
+        "name": "Maan Bahadur Limbu",
+        "jobTitle": "Audio Crew",
+        "photo": "maan-bahadur-limbu.jpg"
+      },
+      {
+        "name": "Narayan Sharma",
+        "jobTitle": "Audio Crew",
+        "photo": "narayan-sharma.jpg"
+      },
+      {
+        "name": "Ram Kumar Majhi",
+        "jobTitle": "Audio Crew",
+        "photo": "ram-kumar-majhi.jpg"
+      }
+    ]
+  },
+  {
+    "department": "Lighting",
+    "isCore": false,
+    "members": [
+      {
+        "name": "Kumar Maharjan",
+        "jobTitle": "Light Designer",
+        "photo": "kumar-maharjan.jpg"
+      },
+      {
+        "name": "Sunil Prajapati",
+        "jobTitle": "Light Designer",
+        "photo": "sunil-prajapati.jpg"
+      },
+      {
+        "name": "Suresh Maharjan",
+        "jobTitle": "Light Supervisor",
+        "photo": "suresh-maharjan.jpg"
+      },
+      {
+        "name": "Suresh Sapkota",
+        "jobTitle": "Light Supervisor",
+        "photo": "suresh-sapkota.jpg"
+      },
+      {
+        "name": "Chandra Bahadur Acchame",
+        "jobTitle": "Light Crew",
+        "photo": "chandra-bahadur-acchame.jpg"
+      },
+      {
+        "name": "Dipesh Lama",
+        "jobTitle": "Light Crew",
+        "photo": "dipesh-lama.jpg"
+      },
+      {
+        "name": "Jay Prakash Sharma",
+        "jobTitle": "Light Crew",
+        "photo": "jay-prakash-sharma.jpg"
+      },
+      {
+        "name": "Jiten Maharjan",
+        "jobTitle": "Light Crew",
+        "photo": null
+      },
+      {
+        "name": "Shyam Bahadur Majhi",
+        "jobTitle": "Light Crew",
+        "photo": "shyam-bahadur-majhi.jpg"
+      }
+    ]
+  },
+  {
+    "department": "Audio Visual",
+    "isCore": false,
+    "members": [
+      {
+        "name": "Milan Nakarmi",
+        "jobTitle": "A/V Head & Coordinator",
+        "photo": "milan-nakarmi.jpg"
+      },
+      {
+        "name": "Biraj Maharjan",
+        "jobTitle": "A/V Head",
+        "photo": "biraj-maharjan.jpg"
+      },
+      {
+        "name": "Ritesh Paudel",
+        "jobTitle": "A/V Head",
+        "photo": "ritesh-paudel.jpg"
+      },
+      {
+        "name": "Sajan Maharjan",
+        "jobTitle": "A/V Head",
+        "photo": "sajan-maharjan.jpg"
+      },
+      {
+        "name": "Suhan Shakya",
+        "jobTitle": "A/V Head",
+        "photo": null
+      },
+      {
+        "name": "Ayush Rawal",
+        "jobTitle": "A/V Crew",
+        "photo": "ayush-rawal.jpg"
+      },
+      {
+        "name": "Biplov Rawat",
+        "jobTitle": "A/V Crew",
+        "photo": "biplov-rawat.jpg"
+      },
+      {
+        "name": "Kumar Shrestha",
+        "jobTitle": "A/V Crew",
+        "photo": "kumar-shrestha.jpg"
+      },
+      {
+        "name": "Mani Ram Karki",
+        "jobTitle": "A/V Crew",
+        "photo": "mani-ram-karki.jpg"
+      },
+      {
+        "name": "Nabin Tamang",
+        "jobTitle": "A/V Crew",
+        "photo": "nabin-tamang.jpg"
+      },
+      {
+        "name": "Prashant Maharjan",
+        "jobTitle": "A/V Crew",
+        "photo": "prashant-maharjan.jpg"
+      },
+      {
+        "name": "Purna Sarki",
+        "jobTitle": "A/V Crew",
+        "photo": "purna-sarki.jpg"
+      },
+      {
+        "name": "Rudra Dip Tamang",
+        "jobTitle": "A/V Crew",
+        "photo": "rudra-dip-tamang.jpg"
+      },
+      {
+        "name": "Sanjay Maharjan",
+        "jobTitle": "A/V Crew",
+        "photo": "sanjay-maharjan.jpg"
+      },
+      {
+        "name": "Siddant Shakya",
+        "jobTitle": "A/V Crew",
+        "photo": "siddant-shakya.jpg"
+      },
+      {
+        "name": "Sunil Shrestha",
+        "jobTitle": "A/V Crew",
+        "photo": "sunil-shrestha.jpg"
+      },
+      {
+        "name": "Umesh Kumal",
+        "jobTitle": "A/V Crew",
+        "photo": "umesh-kumal.jpg"
+      },
+      {
+        "name": "Yam Prasad Thapalipa",
+        "jobTitle": "A/V Crew",
+        "photo": null
+      }
+    ]
+  },
+  {
+    "department": "Backstage",
+    "isCore": false,
+    "members": [
+      {
+        "name": "Raj Kumar Gurung",
+        "jobTitle": "Backstage Coordinator",
+        "photo": "raj-kumar-gurung.jpg"
+      },
+      {
+        "name": "Ram Bahadur Gurung",
+        "jobTitle": "Backstage Crew",
+        "photo": "ram-bahadur-gurung.jpg"
+      },
+      {
+        "name": "Men Bahadur Gurung",
+        "jobTitle": "Backstage Crew",
+        "photo": "men-bahadur-gurung.jpg"
+      },
+      {
+        "name": "Kunsan Momjhan",
+        "jobTitle": "Backstage Crew",
+        "photo": "kunsan-momjhan.jpg"
+      },
+      {
+        "name": "Keshav Gurung",
+        "jobTitle": "Backstage Crew",
+        "photo": "keshav-gurung.jpg"
+      }
+    ]
+  },
+  {
+    "department": "Logistics & Transport",
+    "isCore": false,
+    "members": [
+      {
+        "name": "Ram Prasad Shrestha",
+        "jobTitle": "Transport In-charge",
+        "photo": "ram-prasad-shrestha.jpg"
+      },
+      {
+        "name": "Soviman Shakya",
+        "jobTitle": "Store In-charge",
+        "photo": "soviman-shakya.jpg"
+      },
+      {
+        "name": "Success Shrestha",
+        "jobTitle": "Store Assistant",
+        "photo": "success-shrestha.jpg"
+      },
+      {
+        "name": "Abishekh Majhi",
+        "jobTitle": "Logistics Assistant",
+        "photo": "abishekh-majhi.jpg"
+      },
+      {
+        "name": "Bibash Kunwar",
+        "jobTitle": "Logistics Assistant",
+        "photo": "bibash-kunwar.jpg"
+      },
+      {
+        "name": "Dhiraj Tamang",
+        "jobTitle": "Logistics Assistant",
+        "photo": "dhiraj-tamang.jpg"
+      },
+      {
+        "name": "Lok Bahadur Tamang",
+        "jobTitle": "Logistics Assistant",
+        "photo": "lok-bahadur-tamang.jpg"
+      },
+      {
+        "name": "Mann Bahadur Pulami",
+        "jobTitle": "Logistics Assistant",
+        "photo": "mann-bahadur-pulami.jpg"
+      },
+      {
+        "name": "Pawan Pariyar",
+        "jobTitle": "Logistics Assistant",
+        "photo": "pawan-pariyar.jpg"
+      },
+      {
+        "name": "Pushta Bahadur Ale Magar",
+        "jobTitle": "Logistics Assistant",
+        "photo": "pushta-bahadur-ale-magar.jpg"
+      },
+      {
+        "name": "Rohit Khadgi",
+        "jobTitle": "Logistics Assistant",
+        "photo": "rohit-khadgi.jpg"
+      },
+      {
+        "name": "Rudra Bahadur Tamang",
+        "jobTitle": "Logistics Assistant",
+        "photo": "rudra-bahadur-tamang.jpg"
+      },
+      {
+        "name": "Sugam Gurung",
+        "jobTitle": "Logistics Assistant",
+        "photo": "sugam-gurung.jpg"
+      },
+      {
+        "name": "Saurav Bajracharya",
+        "jobTitle": "Supporter",
+        "photo": null
+      },
+      {
+        "name": "Ramesh Thami",
+        "jobTitle": "Driver",
+        "photo": "ramesh-thami.jpg"
+      },
+      {
+        "name": "Saroj Khatri",
+        "jobTitle": "Driver",
+        "photo": "saroj-khatri.jpg"
+      },
+      {
+        "name": "Sudip Rai",
+        "jobTitle": "Driver",
+        "photo": "sudip-rai.jpg"
+      }
+    ]
+  }
+]

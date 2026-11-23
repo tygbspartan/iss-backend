@@ -68,24 +68,27 @@ export const updateServiceSchema = z
   .partial();
 
 // ── Projects ────────────────────────────────────────────────────────────────
-// Required: title, description, at least one service, cover image.
+// Required: title, description, cover image. Services and the event type are
+// optional (an event type groups projects on the Projects page).
 const projectFields = {
   title: requiredText("Title", 200),
   description: requiredText("Description", 10000),
 };
-const atLeastOneService = "Select at least one service";
 export const createProjectSchema = z.object({
   ...projectFields,
   slug: formOptional(slugRule),
   isActive: formBool,
-  serviceIds: formUuidArray.pipe(z.array(z.uuid()).min(1, atLeastOneService)),
+  serviceIds: formUuidArray,
+  eventTypeId: formOptional(z.uuid("Please choose an event type")),
 });
 export const updateProjectSchema = z
   .object({
     ...projectFields,
     slug: slugRule,
     isActive,
-    serviceIds: z.array(z.uuid()).min(1, atLeastOneService).max(500),
+    serviceIds: z.array(z.uuid()).max(500),
+    // null clears it.
+    eventTypeId: z.uuid("Please choose an event type").nullable(),
     // Reorder / remove gallery images: send the URLs to keep, in display order.
     // Any existing URL left out is deleted from storage. New images are added
     // via POST /projects/:id/thumbnails.
@@ -94,17 +97,24 @@ export const updateProjectSchema = z
   .partial();
 
 // ── Team ────────────────────────────────────────────────────────────────────
-// Required: everything except link (photo included). The department is picked
+// Required: everything except link and phone (photo included). The department is picked
 // from the departments list, not typed.
+// A phone number as people write it: digits with optional +, spaces, dashes
+// or brackets ("+977 9802375115", "984-9273916").
+const phoneNumber = z
+  .string()
+  .trim()
+  .regex(/^\+?[0-9][0-9 ()-]{5,22}$/, "Enter a valid phone number");
+
 const teamFields = {
   name: requiredText("Name", 150),
-  email: z.email("A valid email is required").max(200),
   jobTitle: requiredText("Job title", 150),
   departmentId: z.uuid("Please choose a department"),
 };
 export const createTeamMemberSchema = z.object({
   ...teamFields,
   link: formOptional(z.url().max(500)),
+  phone: formOptional(phoneNumber),
   sortOrder: formInt,
   isActive: formBool,
 });
@@ -112,10 +122,22 @@ export const updateTeamMemberSchema = z
   .object({
     ...teamFields,
     link: z.url().max(500).nullable(),
+    // Blank clears it.
+    phone: z.preprocess((v) => (typeof v === "string" && v.trim() === "" ? null : v), phoneNumber.nullable()),
     sortOrder,
     isActive,
   })
   .partial();
+
+// ── Event types ─────────────────────────────────────────────────────────────
+// Plain JSON (no image). Required: name. The slug (used in the Projects page
+// filter's address) is made from the name when left out.
+const eventTypeFields = {
+  name: requiredText("Event type name", 100),
+  sortOrder,
+};
+export const createEventTypeSchema = z.object({ ...eventTypeFields, slug: slugRule.optional() });
+export const updateEventTypeSchema = z.object({ ...eventTypeFields, slug: slugRule }).partial();
 
 // ── Departments ─────────────────────────────────────────────────────────────
 // Plain JSON (no image). Required: name. isCore = its members are the "core

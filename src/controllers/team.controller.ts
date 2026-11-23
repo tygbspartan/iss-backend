@@ -25,6 +25,9 @@ const assertDepartmentExists = async (departmentId: string): Promise<void> => {
   }
 };
 
+// Phone numbers are for the admin only — strip them from public responses.
+const withoutPhone = <T extends { phone: string | null }>({ phone: _phone, ...member }: T) => member;
+
 // GET /team — public, visible members only.
 // ?core=true → only members of "core" departments (the About page).
 export const listTeam = async (req: Request, res: Response): Promise<void> => {
@@ -34,7 +37,7 @@ export const listTeam = async (req: Request, res: Response): Promise<void> => {
     include: WITH_DEPARTMENT,
     orderBy: ORDER,
   });
-  sendSuccess(res, members, "Team members retrieved successfully");
+  sendSuccess(res, members.map(withoutPhone), "Team members retrieved successfully");
 };
 
 // GET /team/admin/all — admin, includes hidden members

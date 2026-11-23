@@ -10,3 +10,7 @@
 .env.local
 
 npm-debug.log*
+
+# Staff phone numbers for the team seed script: copy to the server by hand,
+# never commit (the repo is public).
+prisma/seed-data/team/phones.json

@@ -1,6 +1,6 @@
 import prisma from "../config/database.config";
 
-type SluggedModel = "service" | "project" | "blog";
+type SluggedModel = "service" | "project" | "blog" | "eventType";
 
 // URL-friendly slug: "Live Sound & PA Rental!" → "live-sound-pa-rental"
 export const generateSlug = (text: string): string =>

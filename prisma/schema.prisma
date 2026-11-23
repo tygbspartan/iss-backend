@@ -53,17 +53,43 @@ model Project {
 
   services Service[]
 
+  // What kind of event it was (concert, conference, …) — the Projects page
+  // filters by this. Optional; deleting a type just leaves its projects untyped.
+  eventTypeId String?    @map("event_type_id") @db.Uuid
+  eventType   EventType? @relation(fields: [eventTypeId], references: [id], onDelete: SetNull)
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@index([isActive, createdAt])
+  @@index([eventTypeId])
   @@map("projects")
+}
+
+// A kind of event (Concerts & Live Music, Conferences & Summits, …) used to
+// group projects. Separate from services: a service is what ISS provides, an
+// event type is what the occasion was.
+model EventType {
+  id        String @id @default(uuid()) @db.Uuid
+  name      String @unique
+  slug      String @unique
+  sortOrder Int    @default(0) @map("sort_order")
+
+  projects Project[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("event_types")
 }
 
 model TeamMember {
   id          String  @id @default(uuid()) @db.Uuid
   name        String
-  email       String
+  // Contact number — admin only, never sent by the public API. Optional:
+  // not every member has one on file.
+  phone       String?
   link        String? // e.g. LinkedIn / portfolio URL — the only optional field
   jobTitle    String  @map("job_title")
   // Two photos: the cartoon is shown by default; the actual photo replaces it

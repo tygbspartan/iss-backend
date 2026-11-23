@@ -11,15 +11,27 @@ import { createWithImage } from "./image.helper";
 
 const MAX_THUMBNAILS = 30;
 const SERVICE_SUMMARY = { id: true, title: true, slug: true };
+const EVENT_TYPE_SUMMARY = { select: { id: true, name: true, slug: true } };
 
-// GET /projects — public, active only. ?service=<slug> filters; ?page=&limit=
+// A chosen event type must exist (null/undefined = none).
+const assertEventTypeExists = async (eventTypeId: string | null | undefined): Promise<void> => {
+  if (!eventTypeId) return;
+  if (!(await prisma.eventType.count({ where: { id: eventTypeId } }))) {
+    throw new BadRequestError("Validation failed", { eventTypeId: ["Please choose an event type"] });
+  }
+};
+
+// GET /projects — public, active only. ?service=<slug> and/or ?type=<event type
+// slug> filter; ?page=&limit=
 export const listProjects = async (req: Request, res: Response): Promise<void> => {
   const pagination = getPagination(req.query);
   const serviceSlug = typeof req.query.service === "string" ? req.query.service : undefined;
+  const typeSlug = typeof req.query.type === "string" ? req.query.type : undefined;
 
   const where: Prisma.ProjectWhereInput = {
     isActive: true,
     ...(serviceSlug && { services: { some: { slug: serviceSlug, isActive: true } } }),
+    ...(typeSlug && { eventType: { slug: typeSlug } }),
   };
 
   const [projects, total] = await prisma.$transaction([
@@ -28,7 +40,7 @@ export const listProjects = async (req: Request, res: Response): Promise<void> =
       orderBy: { createdAt: "desc" },
       skip: pagination.skip,
       take: pagination.limit,
-      include: { services: { where: { isActive: true }, select: SERVICE_SUMMARY } },
+      include: { services: { where: { isActive: true }, select: SERVICE_SUMMARY }, eventType: EVENT_TYPE_SUMMARY },
     }),
     prisma.project.count({ where }),
   ]);
@@ -39,7 +51,7 @@ export const listProjects = async (req: Request, res: Response): Promise<void> =
 export const getProjectBySlug = async (req: Request, res: Response): Promise<void> => {
   const project = await prisma.project.findFirst({
     where: { slug: req.params.slug as string, isActive: true },
-    include: { services: { where: { isActive: true }, select: SERVICE_SUMMARY } },
+    include: { services: { where: { isActive: true }, select: SERVICE_SUMMARY }, eventType: EVENT_TYPE_SUMMARY },
   });
   if (!project) throw new NotFoundError("Project not found");
   sendSuccess(res, project, "Project retrieved successfully");
@@ -53,7 +65,7 @@ export const listAllProjects = async (req: Request, res: Response): Promise<void
       orderBy: { createdAt: "desc" },
       skip: pagination.skip,
       take: pagination.limit,
-      include: { services: { select: SERVICE_SUMMARY } },
+      include: { services: { select: SERVICE_SUMMARY }, eventType: EVENT_TYPE_SUMMARY },
     }),
     prisma.project.count(),
   ]);
@@ -64,17 +76,17 @@ export const listAllProjects = async (req: Request, res: Response): Promise<void
 export const getProjectById = async (req: Request, res: Response): Promise<void> => {
   const project = await prisma.project.findUnique({
     where: { id: req.params.id as string },
-    include: { services: { select: SERVICE_SUMMARY } },
+    include: { services: { select: SERVICE_SUMMARY }, eventType: EVENT_TYPE_SUMMARY },
   });
   if (!project) throw new NotFoundError("Project not found");
   sendSuccess(res, project, "Project retrieved successfully");
 };
 
 // POST /projects — admin, multipart (fields + required "image" cover file).
-// At least one service is required (enforced by the validator).
 export const createProject = async (req: Request, res: Response): Promise<void> => {
   const { serviceIds, slug, ...data } = req.body;
   await assertAllExist("service", serviceIds, "services");
+  await assertEventTypeExists(data.eventTypeId);
   const finalSlug = slug ?? (await uniqueSlug("project", data.title));
 
   const project = await createWithImage(req, "projects", (image) =>
@@ -85,7 +97,7 @@ export const createProject = async (req: Request, res: Response): Promise<void> 
         slug: finalSlug,
         services: { connect: toConnect(serviceIds) },
       },
-      include: { services: { select: SERVICE_SUMMARY } },
+      include: { services: { select: SERVICE_SUMMARY }, eventType: EVENT_TYPE_SUMMARY },
     })
   );
   sendSuccess(res, project, "Project created successfully", 201);
@@ -98,6 +110,7 @@ export const updateProject = async (req: Request, res: Response): Promise<void> 
   const id = req.params.id as string;
   const { serviceIds, thumbnails, ...data } = req.body;
   if (serviceIds) await assertAllExist("service", serviceIds, "services");
+  await assertEventTypeExists(data.eventTypeId);
 
   let removedThumbnails: string[] = [];
   if (thumbnails) {
@@ -121,7 +134,7 @@ export const updateProject = async (req: Request, res: Response): Promise<void> 
       ...(thumbnails && { thumbnails: [...new Set(thumbnails as string[])] }),
       ...(serviceIds && { services: { set: toConnect(serviceIds) } }),
     },
-    include: { services: { select: SERVICE_SUMMARY } },
+    include: { services: { select: SERVICE_SUMMARY }, eventType: EVENT_TYPE_SUMMARY },
   });
 
   if (removedThumbnails.length) await StorageService.deleteImages(removedThumbnails);
