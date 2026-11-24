@@ -6,17 +6,20 @@
       {
         "name": "Suresh Ratna Shakya",
         "jobTitle": "Chairman",
-        "photo": "suresh-ratna-shakya.jpg"
+        "photo": "suresh-ratna-shakya.jpg",
+        "cartoon": "suresh-ratna-shakya-cartoon.jpg"
       },
       {
         "name": "Shibir Ratna Shakya",
         "jobTitle": "Managing Director & Sound Engineer",
-        "photo": "shibir-ratna-shakya.jpg"
+        "photo": "shibir-ratna-shakya.jpg",
+        "cartoon": "shibir-ratna-shakya-cartoon.jpg"
       },
       {
         "name": "Samir Ratna Shakya",
         "jobTitle": "Managing Director",
-        "photo": "samir-ratna-shakya.jpg"
+        "photo": "samir-ratna-shakya.jpg",
+        "cartoon": "samir-ratna-shakya-cartoon.jpg"
       }
     ]
   },
@@ -27,27 +30,32 @@
       {
         "name": "Melina Shakya",
         "jobTitle": "Administrative Head",
-        "photo": "melina-shakya.jpg"
+        "photo": "melina-shakya.jpg",
+        "cartoon": "melina-shakya-cartoon.jpg"
       },
       {
         "name": "Tika Ram Dhakla",
         "jobTitle": "Finance Head",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Funji Dolmo Gongba",
         "jobTitle": "Sales & Marketing Manager",
-        "photo": "funji-dolmo-gongba.jpg"
+        "photo": "funji-dolmo-gongba.jpg",
+        "cartoon": "funji-dolmo-gongba-cartoon.jpg"
       },
       {
         "name": "Mahesh Kumar Karki",
         "jobTitle": "Event Coordinator",
-        "photo": "mahesh-kumar-karki.jpg"
+        "photo": "mahesh-kumar-karki.jpg",
+        "cartoon": "mahesh-kumar-karki-cartoon.jpg"
       },
       {
         "name": "Nayana Shakya",
         "jobTitle": "Account Assistant",
-        "photo": "nayana-shakya.jpg"
+        "photo": "nayana-shakya.jpg",
+        "cartoon": "nayana-shakya-cartoon.jpg"
       }
     ]
   },
@@ -58,77 +66,92 @@
       {
         "name": "Bharat Dangol",
         "jobTitle": "Audio Engineer",
-        "photo": "bharat-dangol.jpg"
+        "photo": "bharat-dangol.jpg",
+        "cartoon": "bharat-dangol-cartoon.jpg"
       },
       {
         "name": "Ganga Raj Baskota",
         "jobTitle": "Audio Engineer",
-        "photo": "ganga-raj-baskota.jpg"
+        "photo": "ganga-raj-baskota.jpg",
+        "cartoon": "ganga-raj-baskota-cartoon.jpg"
       },
       {
         "name": "Pujan Bhujel",
         "jobTitle": "Audio Engineer",
-        "photo": "pujan-bhujel.jpg"
+        "photo": "pujan-bhujel.jpg",
+        "cartoon": "pujan-bhujel-cartoon.jpg"
       },
       {
         "name": "Sovin Shakya",
         "jobTitle": "Audio Engineer",
-        "photo": "sovin-shakya.jpg"
+        "photo": "sovin-shakya.jpg",
+        "cartoon": "sovin-shakya-cartoon.jpg"
       },
       {
         "name": "Bal Kumar Sharma",
         "jobTitle": "Audio Supervisor",
-        "photo": "bal-kumar-sharma.jpg"
+        "photo": "bal-kumar-sharma.jpg",
+        "cartoon": "bal-kumar-sharma-cartoon.jpg"
       },
       {
         "name": "Lila Raj Bastola",
         "jobTitle": "Audio Supervisor",
-        "photo": "lila-raj-bastola.jpg"
+        "photo": "lila-raj-bastola.jpg",
+        "cartoon": "lila-raj-bastola-cartoon.jpg"
       },
       {
         "name": "Nischal Bhandari",
         "jobTitle": "Audio Supervisor",
-        "photo": "nischal-bhandari.jpg"
+        "photo": "nischal-bhandari.jpg",
+        "cartoon": "nischal-bhandari-cartoon.jpg"
       },
       {
         "name": "Rukesh Shakya",
         "jobTitle": "Audio Supervisor",
-        "photo": "rukesh-shakya.jpg"
+        "photo": "rukesh-shakya.jpg",
+        "cartoon": "rukesh-shakya-cartoon.jpg"
       },
       {
         "name": "Saroj Maharjan",
         "jobTitle": "Audio Supervisor",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Anish Shahi",
         "jobTitle": "Audio Crew",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Bam Bahadur Khati",
         "jobTitle": "Audio Crew",
-        "photo": "bam-bahadur-khati.jpg"
+        "photo": "bam-bahadur-khati.jpg",
+        "cartoon": "bam-bahadur-khati-cartoon.jpg"
       },
       {
         "name": "Herendra Man Shakya",
         "jobTitle": "Audio Crew",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Maan Bahadur Limbu",
         "jobTitle": "Audio Crew",
-        "photo": "maan-bahadur-limbu.jpg"
+        "photo": "maan-bahadur-limbu.jpg",
+        "cartoon": "maan-bahadur-limbu-cartoon.jpg"
       },
       {
         "name": "Narayan Sharma",
         "jobTitle": "Audio Crew",
-        "photo": "narayan-sharma.jpg"
+        "photo": "narayan-sharma.jpg",
+        "cartoon": "narayan-sharma-cartoon.jpg"
       },
       {
         "name": "Ram Kumar Majhi",
         "jobTitle": "Audio Crew",
-        "photo": "ram-kumar-majhi.jpg"
+        "photo": "ram-kumar-majhi.jpg",
+        "cartoon": "ram-kumar-majhi-cartoon.jpg"
       }
     ]
   },
@@ -139,47 +162,56 @@
       {
         "name": "Kumar Maharjan",
         "jobTitle": "Light Designer",
-        "photo": "kumar-maharjan.jpg"
+        "photo": "kumar-maharjan.jpg",
+        "cartoon": "kumar-maharjan-cartoon.jpg"
       },
       {
         "name": "Sunil Prajapati",
         "jobTitle": "Light Designer",
-        "photo": "sunil-prajapati.jpg"
+        "photo": "sunil-prajapati.jpg",
+        "cartoon": "sunil-prajapati-cartoon.jpg"
       },
       {
         "name": "Suresh Maharjan",
         "jobTitle": "Light Supervisor",
-        "photo": "suresh-maharjan.jpg"
+        "photo": "suresh-maharjan.jpg",
+        "cartoon": "suresh-maharjan-cartoon.jpg"
       },
       {
         "name": "Suresh Sapkota",
         "jobTitle": "Light Supervisor",
-        "photo": "suresh-sapkota.jpg"
+        "photo": "suresh-sapkota.jpg",
+        "cartoon": "suresh-sapkota-cartoon.jpg"
       },
       {
         "name": "Chandra Bahadur Acchame",
         "jobTitle": "Light Crew",
-        "photo": "chandra-bahadur-acchame.jpg"
+        "photo": "chandra-bahadur-acchame.jpg",
+        "cartoon": "chandra-bahadur-acchame-cartoon.jpg"
       },
       {
         "name": "Dipesh Lama",
         "jobTitle": "Light Crew",
-        "photo": "dipesh-lama.jpg"
+        "photo": "dipesh-lama.jpg",
+        "cartoon": "dipesh-lama-cartoon.jpg"
       },
       {
         "name": "Jay Prakash Sharma",
         "jobTitle": "Light Crew",
-        "photo": "jay-prakash-sharma.jpg"
+        "photo": "jay-prakash-sharma.jpg",
+        "cartoon": "jay-prakash-sharma-cartoon.jpg"
       },
       {
         "name": "Jiten Maharjan",
         "jobTitle": "Light Crew",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Shyam Bahadur Majhi",
         "jobTitle": "Light Crew",
-        "photo": "shyam-bahadur-majhi.jpg"
+        "photo": "shyam-bahadur-majhi.jpg",
+        "cartoon": "shyam-bahadur-majhi-cartoon.jpg"
       }
     ]
   },
@@ -190,92 +222,110 @@
       {
         "name": "Milan Nakarmi",
         "jobTitle": "A/V Head & Coordinator",
-        "photo": "milan-nakarmi.jpg"
+        "photo": "milan-nakarmi.jpg",
+        "cartoon": "milan-nakarmi-cartoon.jpg"
       },
       {
         "name": "Biraj Maharjan",
         "jobTitle": "A/V Head",
-        "photo": "biraj-maharjan.jpg"
+        "photo": "biraj-maharjan.jpg",
+        "cartoon": "biraj-maharjan-cartoon.jpg"
       },
       {
         "name": "Ritesh Paudel",
         "jobTitle": "A/V Head",
-        "photo": "ritesh-paudel.jpg"
+        "photo": "ritesh-paudel.jpg",
+        "cartoon": "ritesh-paudel-cartoon.jpg"
       },
       {
         "name": "Sajan Maharjan",
         "jobTitle": "A/V Head",
-        "photo": "sajan-maharjan.jpg"
+        "photo": "sajan-maharjan.jpg",
+        "cartoon": "sajan-maharjan-cartoon.jpg"
       },
       {
         "name": "Suhan Shakya",
         "jobTitle": "A/V Head",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Ayush Rawal",
         "jobTitle": "A/V Crew",
-        "photo": "ayush-rawal.jpg"
+        "photo": "ayush-rawal.jpg",
+        "cartoon": "ayush-rawal-cartoon.jpg"
       },
       {
         "name": "Biplov Rawat",
         "jobTitle": "A/V Crew",
-        "photo": "biplov-rawat.jpg"
+        "photo": "biplov-rawat.jpg",
+        "cartoon": "biplov-rawat-cartoon.jpg"
       },
       {
         "name": "Kumar Shrestha",
         "jobTitle": "A/V Crew",
-        "photo": "kumar-shrestha.jpg"
+        "photo": "kumar-shrestha.jpg",
+        "cartoon": "kumar-shrestha-cartoon.jpg"
       },
       {
         "name": "Mani Ram Karki",
         "jobTitle": "A/V Crew",
-        "photo": "mani-ram-karki.jpg"
+        "photo": "mani-ram-karki.jpg",
+        "cartoon": "mani-ram-karki-cartoon.jpg"
       },
       {
         "name": "Nabin Tamang",
         "jobTitle": "A/V Crew",
-        "photo": "nabin-tamang.jpg"
+        "photo": "nabin-tamang.jpg",
+        "cartoon": "nabin-tamang-cartoon.jpg"
       },
       {
         "name": "Prashant Maharjan",
         "jobTitle": "A/V Crew",
-        "photo": "prashant-maharjan.jpg"
+        "photo": "prashant-maharjan.jpg",
+        "cartoon": "prashant-maharjan-cartoon.jpg"
       },
       {
         "name": "Purna Sarki",
         "jobTitle": "A/V Crew",
-        "photo": "purna-sarki.jpg"
+        "photo": "purna-sarki.jpg",
+        "cartoon": "purna-sarki-cartoon.jpg"
       },
       {
         "name": "Rudra Dip Tamang",
         "jobTitle": "A/V Crew",
-        "photo": "rudra-dip-tamang.jpg"
+        "photo": "rudra-dip-tamang.jpg",
+        "cartoon": "rudra-dip-tamang-cartoon.jpg"
       },
       {
         "name": "Sanjay Maharjan",
         "jobTitle": "A/V Crew",
-        "photo": "sanjay-maharjan.jpg"
+        "photo": "sanjay-maharjan.jpg",
+        "cartoon": "sanjay-maharjan-cartoon.jpg"
       },
       {
         "name": "Siddant Shakya",
         "jobTitle": "A/V Crew",
-        "photo": "siddant-shakya.jpg"
+        "photo": "siddant-shakya.jpg",
+        "cartoon": null
       },
       {
         "name": "Sunil Shrestha",
         "jobTitle": "A/V Crew",
-        "photo": "sunil-shrestha.jpg"
+        "photo": "sunil-shrestha.jpg",
+        "cartoon": "sunil-shrestha-cartoon.jpg"
       },
       {
         "name": "Umesh Kumal",
         "jobTitle": "A/V Crew",
-        "photo": "umesh-kumal.jpg"
+        "photo": "umesh-kumal.jpg",
+        "cartoon": "umesh-kumal-cartoon.jpg"
       },
       {
         "name": "Yam Prasad Thapalipa",
         "jobTitle": "A/V Crew",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       }
     ]
   },
@@ -286,27 +336,32 @@
       {
         "name": "Raj Kumar Gurung",
         "jobTitle": "Backstage Coordinator",
-        "photo": "raj-kumar-gurung.jpg"
+        "photo": "raj-kumar-gurung.jpg",
+        "cartoon": "raj-kumar-gurung-cartoon.jpg"
       },
       {
         "name": "Ram Bahadur Gurung",
         "jobTitle": "Backstage Crew",
-        "photo": "ram-bahadur-gurung.jpg"
+        "photo": "ram-bahadur-gurung.jpg",
+        "cartoon": "ram-bahadur-gurung-cartoon.jpg"
       },
       {
         "name": "Men Bahadur Gurung",
         "jobTitle": "Backstage Crew",
-        "photo": "men-bahadur-gurung.jpg"
+        "photo": "men-bahadur-gurung.jpg",
+        "cartoon": "men-bahadur-gurung-cartoon.jpg"
       },
       {
         "name": "Kunsan Momjhan",
         "jobTitle": "Backstage Crew",
-        "photo": "kunsan-momjhan.jpg"
+        "photo": "kunsan-momjhan.jpg",
+        "cartoon": "kunsan-momjhan-cartoon.jpg"
       },
       {
         "name": "Keshav Gurung",
         "jobTitle": "Backstage Crew",
-        "photo": "keshav-gurung.jpg"
+        "photo": "keshav-gurung.jpg",
+        "cartoon": "keshav-gurung-cartoon.jpg"
       }
     ]
   },
@@ -317,87 +372,104 @@
       {
         "name": "Ram Prasad Shrestha",
         "jobTitle": "Transport In-charge",
-        "photo": "ram-prasad-shrestha.jpg"
+        "photo": "ram-prasad-shrestha.jpg",
+        "cartoon": "ram-prasad-shrestha-cartoon.jpg"
       },
       {
         "name": "Soviman Shakya",
         "jobTitle": "Store In-charge",
-        "photo": "soviman-shakya.jpg"
+        "photo": "soviman-shakya.jpg",
+        "cartoon": "soviman-shakya-cartoon.jpg"
       },
       {
         "name": "Success Shrestha",
         "jobTitle": "Store Assistant",
-        "photo": "success-shrestha.jpg"
+        "photo": "success-shrestha.jpg",
+        "cartoon": "success-shrestha-cartoon.jpg"
       },
       {
         "name": "Abishekh Majhi",
         "jobTitle": "Logistics Assistant",
-        "photo": "abishekh-majhi.jpg"
+        "photo": "abishekh-majhi.jpg",
+        "cartoon": "abishekh-majhi-cartoon.jpg"
       },
       {
         "name": "Bibash Kunwar",
         "jobTitle": "Logistics Assistant",
-        "photo": "bibash-kunwar.jpg"
+        "photo": "bibash-kunwar.jpg",
+        "cartoon": "bibash-kunwar-cartoon.jpg"
       },
       {
         "name": "Dhiraj Tamang",
         "jobTitle": "Logistics Assistant",
-        "photo": "dhiraj-tamang.jpg"
+        "photo": "dhiraj-tamang.jpg",
+        "cartoon": "dhiraj-tamang-cartoon.jpg"
       },
       {
         "name": "Lok Bahadur Tamang",
         "jobTitle": "Logistics Assistant",
-        "photo": "lok-bahadur-tamang.jpg"
+        "photo": "lok-bahadur-tamang.jpg",
+        "cartoon": "lok-bahadur-tamang-cartoon.jpg"
       },
       {
         "name": "Mann Bahadur Pulami",
         "jobTitle": "Logistics Assistant",
-        "photo": "mann-bahadur-pulami.jpg"
+        "photo": "mann-bahadur-pulami.jpg",
+        "cartoon": "mann-bahadur-pulami-cartoon.jpg"
       },
       {
         "name": "Pawan Pariyar",
         "jobTitle": "Logistics Assistant",
-        "photo": "pawan-pariyar.jpg"
+        "photo": "pawan-pariyar.jpg",
+        "cartoon": "pawan-pariyar-cartoon.jpg"
       },
       {
         "name": "Pushta Bahadur Ale Magar",
         "jobTitle": "Logistics Assistant",
-        "photo": "pushta-bahadur-ale-magar.jpg"
+        "photo": "pushta-bahadur-ale-magar.jpg",
+        "cartoon": "pushta-bahadur-ale-magar-cartoon.jpg"
       },
       {
         "name": "Rohit Khadgi",
         "jobTitle": "Logistics Assistant",
-        "photo": "rohit-khadgi.jpg"
+        "photo": "rohit-khadgi.jpg",
+        "cartoon": "rohit-khadgi-cartoon.jpg"
       },
       {
         "name": "Rudra Bahadur Tamang",
         "jobTitle": "Logistics Assistant",
-        "photo": "rudra-bahadur-tamang.jpg"
+        "photo": "rudra-bahadur-tamang.jpg",
+        "cartoon": "rudra-bahadur-tamang-cartoon.jpg"
       },
       {
         "name": "Sugam Gurung",
         "jobTitle": "Logistics Assistant",
-        "photo": "sugam-gurung.jpg"
+        "photo": "sugam-gurung.jpg",
+        "cartoon": "sugam-gurung-cartoon.jpg"
       },
       {
         "name": "Saurav Bajracharya",
         "jobTitle": "Supporter",
-        "photo": null
+        "photo": null,
+        "cartoon": null
       },
       {
         "name": "Ramesh Thami",
         "jobTitle": "Driver",
-        "photo": "ramesh-thami.jpg"
+        "photo": "ramesh-thami.jpg",
+        "cartoon": "ramesh-thami-cartoon.jpg"
       },
       {
         "name": "Saroj Khatri",
         "jobTitle": "Driver",
-        "photo": "saroj-khatri.jpg"
+        "photo": "saroj-khatri.jpg",
+        "cartoon": "saroj-khatri-cartoon.jpg"
       },
       {
         "name": "Sudip Rai",
         "jobTitle": "Driver",
-        "photo": "sudip-rai.jpg"
+        "photo": "sudip-rai.jpg",
+        "cartoon": "sudip-rai-cartoon.jpg"
       }
     ]
   }

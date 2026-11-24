@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Audio Solutions",
+    "slug": "audio-solutions",
+    "description": "Clear, powerful sound for audiences of every size. We deploy DAS Aero line arrays, JBL SRX speakers and stage monitors, wired and wireless in-ear systems and a Waves LV1 digital console — set up, tuned and mixed by experienced engineers for concerts, conferences and celebrations alike.",
+    "features": [
+      "DAS Aero 20A Active Line Array",
+      "JBL SRX835 Full-Range Speakers",
+      "JBL SRX812 Stage Monitors",
+      "In-Ear Monitoring (Wired & Wireless)",
+      "Professional Microphones & Stands",
+      "Waves LV1 Digital Mixing Console",
+      "Digital Stage Boxes"
+    ],
+    "image": "audio-solutions.png"
+  },
+  {
+    "title": "Display Solutions",
+    "slug": "display-solutions",
+    "description": "High-impact visuals that hold every eye in the room. From ABSEN LED walls to digital standees and podiums, driven by Resolume media servers and precise projection mapping, we bring presentations, live feeds and brand content to life on any stage or venue.",
+    "features": [
+      "ABSEN LED Displays",
+      "Digital Standees",
+      "Digital Podium",
+      "Resolume Media Server",
+      "Projection Mapping"
+    ],
+    "image": "display-solutions.png"
+  },
+  {
+    "title": "Lighting Solutions",
+    "slug": "lighting-solutions",
+    "description": "Lighting that sets the mood and frames every moment. Our stage and event lighting, intelligent moving heads, timecode-synchronised shows and laser systems are designed and programmed to your event, turning any space into a stage with precise, repeatable cues.",
+    "features": [
+      "Stage & Event Lighting",
+      "Intelligent Moving Head Fixtures",
+      "Timecode Lighting",
+      "Laser Systems"
+    ],
+    "image": "lighting-solutions.png"
+  },
+  {
+    "title": "Truss & Rigging Systems",
+    "slug": "truss-rigging-systems",
+    "description": "Safe, solid structures for stages, lighting, screens and sound. Our aluminum truss, ground support and roof systems are planned around the load they carry and installed by a trained rigging crew, from the first piece of setup to the final dismantle.",
+    "features": [
+      "Aluminum Truss Systems",
+      "Ground Support Structures",
+      "Box Truss with Roof",
+      "Lighting Truss Installation",
+      "LED Screen Support Structures",
+      "Speaker Hanging Systems",
+      "Safety Rigging & Load Management",
+      "Truss Setup & Dismantling"
+    ],
+    "image": "truss-rigging-systems.png"
+  },
+  {
+    "title": "Technical Consultation & Event Planning",
+    "slug": "technical-consultation-event-planning",
+    "description": "Expert technical guidance from the first site visit to show day. We assess your venue, design the audio-visual system, prepare technical drawings and layouts, and coordinate production, so every element of your event is planned, compatible and delivered on schedule.",
+    "features": [
+      "Event Technical Planning",
+      "Audio-Visual System Design",
+      "Production Planning & Coordination",
+      "Venue Site Inspection & Assessment",
+      "Technical Drawings & Layout Planning",
+      "Stage & Venue Design Consultation"
+    ],
+    "image": "technical-consultation-event-planning.png"
+  }
+]

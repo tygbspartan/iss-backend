@@ -3,17 +3,21 @@
  *
  * The data lives in prisma/seed-data/team/:
  *   team.json     departments in display order, each with its members in order
- *                 (name, job title, photo file — null for "no photo yet")
- *   *.jpg         the photos, plus no-photo.jpg for people without one
+ *                 (name, job title, real photo file and cartoon file — either
+ *                 can be null when there isn't one yet)
+ *   *.jpg         the photos and cartoons, plus no-photo.jpg for people
+ *                 without a photo
  *   phones.json   { "<name>": "+977 98…" } — staff phone numbers. NOT in git
  *                 (the repo is public): copy it to the server by hand. Without
  *                 it members are created without numbers; run the script again
  *                 once it's there and the missing numbers are filled in.
  *
- * Each photo is uploaded through the normal StorageService — Supabase Storage
- * in development, the local /uploads folder in production. The real photo is
- * used for the cartoon too, for now (uploaded as its own file, so replacing
- * one in the admin doesn't delete the other).
+ * Each image is uploaded through the normal StorageService — Supabase Storage
+ * in development, the local /uploads folder in production. The cartoon is
+ * shown by default and the real photo on hover/tap. Someone without a cartoon
+ * gets their real photo in its place (uploaded as its own file, so replacing
+ * one in the admin doesn't delete the other); someone with neither gets the
+ * no-photo placeholder for both.
  *
  *   Development:  npm run seed:team:dev [-- --replace]
  *   Production:   npm run build && npm run seed:team [-- --replace]
@@ -37,7 +41,7 @@ const NO_PHOTO = "no-photo.jpg";
 interface SeedDepartment {
   department: string;
   isCore: boolean; // shown with the About page's "core" people
-  members: { name: string; jobTitle: string; photo: string | null }[];
+  members: { name: string; jobTitle: string; photo: string | null; cartoon: string | null }[];
 }
 
 const readJson = async <T>(file: string): Promise<T | null> => {
@@ -122,10 +126,9 @@ async function main(): Promise<void> {
         continue;
       }
 
-      // Two separate files for the same photo: the cartoon and the real one.
-      const file = member.photo ?? NO_PHOTO;
-      const image = await upload(file);
-      const actualImage = await upload(file);
+      const photo = member.photo ?? NO_PHOTO;
+      const image = await upload(member.cartoon ?? photo);
+      const actualImage = await upload(photo);
       try {
         await prisma.teamMember.create({
           data: {
@@ -143,7 +146,10 @@ async function main(): Promise<void> {
         throw error;
       }
       created++;
-      console.log(`✅ ${seed.department}: ${member.name}${member.photo ? "" : " (no photo yet)"}`);
+      console.log(
+        `✅ ${seed.department}: ${member.name}` +
+          (!member.photo ? " (no photo yet)" : !member.cartoon ? " (no cartoon yet)" : "")
+      );
     }
   }
 

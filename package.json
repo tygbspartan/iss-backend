@@ -13,6 +13,8 @@
     "prestart": "prisma migrate deploy",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
+    "seed:services": "node dist/scripts/seed-services.js",
+    "seed:services:dev": "ts-node src/scripts/seed-services.ts",
     "seed:projects": "node dist/scripts/seed-projects.js",
     "seed:projects:dev": "ts-node src/scripts/seed-projects.ts",
     "seed:team": "node dist/scripts/seed-team.js",
